@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+<body>
+    <div id="app"></div>
+<script type="text/babel">
+    const Header = ({logoImg}) => {
+            return (
+                <a href="#" className="header-logo">
+                    <img src={logoImg} className="logo-img" alt={'header-logo'}/>
+                </a>
+            );
+    };
+ 
+    const MovieCard = ({name,age,img}) => {
+        return (
+            <div className="movie-Card">
+                <img src={img} className="movie-Card-img" alt={`muvieName${name}`}/>
+                <div className="movie-Card-info">
+                <h1 className="movie-Card-info-title">{name}</h1>
+                <span className="movie-Card-info-age">Год выпуска: {age}</span>
+                </div>
+            </div>
+        );
+    };
+
+    const MainNav = ({mainLink})=>{
+        return(
+            <li className="main-nav-item">
+                <a href="#" className="main-nav-link">{mainLink}</a>
+            </li>
+        );
+    };
+
+    const Footer = ({footerLink}) => {
+            return (
+                <a href="#" className="footer-link">
+                    <span>{footerLink}</span>
+                </a>
+            );
+    };
+
+    const App =(
+    <>
+    <header className="header">
+        <div className="container">
+            <Header logoImg="images/header-logo.webp"/>  
+        </div>
+    </header>
+
+    <div className="container main-info">
+        <nav className="main-nav">
+            <ul className="main-nav-list">
+                <MainNav mainLink="Фильмы"/>
+                <MainNav mainLink="Сериалы"/>
+                <MainNav mainLink="Аниме"/>
+            </ul>
+        </nav>
+
+        <div className="cards">
+            <MovieCard name="Властелин колец: Братство Кольца" age="19 декабря 2001 г." img="https://upload.wikimedia.org/wikipedia/ru/0/08/The_Lord_of_the_Rings._The_Fellowship_of_the_Ring_%E2%80%94_movie.jpg"/>  
+            <MovieCard name="Властелин колец: Две крепости" age="18 декабря 2002 г." img="https://upload.wikimedia.org/wikipedia/ru/f/f0/The_Lord_of_the_Rings._The_Two_Towers_%E2%80%94_movie.jpg"/>  
+            <MovieCard name="Властелин колец: Возвращение короля" age="3 декабря 2003 г." img="https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/e410c71f-baa1-4fe5-bb29-aedb4662f49b/600x900"/> 
+            <MovieCard name="Драйв" age="16 сентября 2011 г" img="https://upload.wikimedia.org/wikipedia/ru/1/13/Drive2011Poster.jpg"/>  
+            <MovieCard name="Остров проклятых" age="19 февраля 2010 г." img="https://thumbs.dfs.ivi.ru/storage15/contents/8/6/16b2bac2ff70978c6b40e17fddcc34.jpg"/>  
+            <MovieCard name="Интерстеллар" age="26 октября 2014 г." img="https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/78c36c0f-aefd-4102-bc3b-bac0dd4314d8/1920x"/>  
+        </div>
+    </div>
+
+    <footer className="footer">
+        <div className="container">
+            <div className="footer-inner">
+            <Footer footerLink="footer-link:D"/>
+            </div>
+        </div>
+        </footer>
+    </>
+    );
+    ReactDOM.render(App, document.getElementById('app'));
+</script>
+</body>
+</html>

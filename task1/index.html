@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+<body>
+    <div id="app"></div>
+<script type="text/babel">
+    const MovieCard = ({name,age,img}) => {
+        return (
+            <div className="movie-Card">
+                <img src={img} className="movie-Card-img" alt={`muvieName${name}`}/>
+                <div className="movie-Card-info">
+                <h1 className="movie-Card-info-title">{name}</h1>
+                <span className="movie-Card-info-age">Год выпуска: {age}</span>
+                </div>
+            </div>
+
+            
+        );
+    };
+    const movieCard =(
+        <div className="cards">
+        <MovieCard name="Властелин колец: Братство Кольца" age="19 декабря 2001 г." img="https://upload.wikimedia.org/wikipedia/ru/0/08/The_Lord_of_the_Rings._The_Fellowship_of_the_Ring_%E2%80%94_movie.jpg"/>  
+        <MovieCard name="Властелин колец: Две крепости" age="18 декабря 2002 г." img="https://upload.wikimedia.org/wikipedia/ru/f/f0/The_Lord_of_the_Rings._The_Two_Towers_%E2%80%94_movie.jpg"/>  
+        <MovieCard name="Властелин колец: Возвращение короля" age="3 декабря 2003 г." img="https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/e410c71f-baa1-4fe5-bb29-aedb4662f49b/600x900"/>   
+        </div>
+        );
+    ReactDOM.render(movieCard, document.getElementById('app'));
+</script>
+</body>
+</html>
